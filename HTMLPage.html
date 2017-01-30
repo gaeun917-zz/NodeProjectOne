@@ -13,7 +13,7 @@
 
             // 1. changeIcon Function
             function changeIcon(target, from, to) {
-                alert(from + to); // + ?
+                alert('You Liked This Item');
                 $(target).removeClass(from).addClass(to);
             }
 
@@ -49,7 +49,7 @@
                     var index = $(this).attr('data-index'); // li에 data-index
 
                     // 1. confirm the purchase
-                    if (confirm('would you like to buy this item?')) {
+                    if (confirm('Would You Like to Place This Item in Your Cart?')) {
                         // A1. buy socket event
                         socket.emit('buy', Number(index)); // number(index) to buy event on app.js
 

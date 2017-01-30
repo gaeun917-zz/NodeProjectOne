@@ -1,5 +1,11 @@
+// * this app is designed for a seller who has a small number of products on a limited time offer
 
-//products in the cart(index page is the cart) are saved for 10 mins, after that, they will be gone.
+// 1. by clicking a heart icon on the right corner of each item, clients show their interest on the item
+//    and the heart icon is changed to a check mark
+// 2. the item count next to the icon will be decrease : count --
+// 3. clicking the check mark means ordering the item. An alert window will ask to confirm the order.
+//     if you say yes, it will be disappear on the list and the item will be placed in the shopping cart.
+// 4. products on the list can be saved for 10 mins and after that they will be gone.
 
 
  //1. module
