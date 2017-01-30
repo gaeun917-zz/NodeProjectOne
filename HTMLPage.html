@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            // 1. changeIcon Function
+            function changeIcon(target, from, to) {
+                alert(from + to); // + ?
+                $(target).removeClass(from).addClass(to);
+            }
+
+            // 2. changeCount function
+            function changeCount(index, count) {
+                $('li[data-index=' + index + '] .ui-li-count').html(count);
+            }
+
+            // 3. Socket.io
+            var socket = io.connect();
+
+            socket.on('count', function (data) {
+                // 3.1 changeCount(index, count)
+                changeCount(data.index, data.count);
+            });
+
+            // 4. html
+            $('.product > a[data-icon]').click(function () {
+
+                if ($(this).attr('toggle') != 'off') {
+                    var index = $(this).attr('data-index');
+
+                    // 1. cart socket event
+                    socket.emit('cart', Number(index)); // number(index) to cart event on app.js
+
+                    // 2. changeIcon (target, from, to)
+                    changeIcon(this, 'ui-icon-heart', 'ui-icon-check');
+                    // 3. toggle off
+                    $(this).attr('toggle', 'off');
+
+
+                } else {
+                    var index = $(this).attr('data-index'); // li에 data-index
+
+                    // 1. confirm the purchase
+                    if (confirm('would you like to buy this item?')) {
+                        // A1. buy socket event
+                        socket.emit('buy', Number(index)); // number(index) to buy event on app.js
+
+                        // A2. remove list item
+                        $(this).parent().remove();
+                        $('#listview').listview('refresh');
+
+                    } else {
+                        // B1. return socket event
+                        socket.emit('return', Number(index));// number(index) to return event on app.js
+
+                        // B2. change icon
+                        changeIcon(this, 'ui-icon-check', 'ui-icon-heart');
+                    }
+                    // 2. toggle on
+                    $(this).attr('toggle', 'on');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div data-role="page">
+    <div data-role="header">
+        <h1>Store</h1>
+    </div>
+
+
+    <div data-role="content">
+        <ul id="listview" data-role="listview" data-inset="true" data-filter="true">
+            <li data-role="list-divider">products</li>
+
+
+            <% products.forEach(function (item, index) { %>
+                <li class="product" data-index="<%= item.index %>">
+                    <a href="#">
+                        <img src="chrome.png"/>
+                        <h3><%= item.name %></h3>
+                        <p><%= item.price %>원</p>
+                        <span class="ui-li-count"><%= item.count %></span>
+                    </a>
+
+                    <a href="#" data-icon="heart" data-index="<%= item.index %>"></a>
+                </li>
+            <% }); %>
+        </ul>
+
+
+
+    </div>
+</div>
+</body>
+</html>

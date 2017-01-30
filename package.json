@@ -1,0 +1,19 @@
+{
+  "name": "stella_lee",
+  "version": "1.0.0",
+  "description": "a simple node.js project with socket.io,express,fs to demonstrate a online shopping site handling realtime data.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm install first and Chrome browser is recommended "
+  },
+  "keywords": [
+    "node",
+    "ajax",
+    "socket.io",
+    "express",
+    "online",
+    "shopping"
+  ],
+  "author": "stella Ga-Eun Lee",
+  "license": "ISC"
+}
