@@ -86,10 +86,10 @@
             <% products.forEach(function (item, index) { %>
                 <li class="product" data-index="<%= item.index %>">
                     <a href="#">
-                        <img src="chrome.png"/>
+                        <img src="<%=item.image%>"/>
                         <h3><%= item.name %></h3>
-                        <p><%= item.price %>원</p>
-                        <span class="ui-li-count"><%= item.count %></span>
+                        <p>$<%= item.price %></p>
+                        <span class="ui-li-count">item count: <%= item.count %></span>
                     </a>
 
                     <a href="#" data-icon="heart" data-index="<%= item.index %>"></a>

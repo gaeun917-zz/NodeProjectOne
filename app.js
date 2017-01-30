@@ -1,3 +1,7 @@
+
+//products in the cart(index page is the cart) are saved for 10 mins, after that, they will be gone.
+
+
  //1. module
 var fs = require('fs');
 var ejs = require('ejs');
@@ -16,15 +20,16 @@ function Product(name, image, price, count) {
                 this.count = count;
 }
 
-// 3. variable : call constructor and put Product object inside products array
+
+ // 3. variable : call constructor and put Product object inside products array
 var products = [
-                new Product('JavaScript', 'clock.png', 28000, 30),
-                new Product('jQuery', 'diamond.png', 28000, 30),
-                new Product('Node.js', 'graph.png', 32000, 30),
-                new Product('Socket.io', 'joypad.png', 17000, 30),
-                new Product('Connect', 'man.png', 18000, 30),
-                new Product('Express', 'map.png', 31000, 30),
-                new Product('EJS', 'wooman.png', 12000, 30)
+                new Product('JavaScript', 'clock.png', 28, 20),
+                new Product('jQuery', 'diamond.png', 28, 15),
+                new Product('Node.js', 'graph.png', 32, 2),
+                new Product('Socket.io', 'joypad.png', 17, 34),
+                new Product('Connect', 'man.png', 18, 14),
+                new Product('Express', 'map.png', 31, 23),
+                new Product('EJS', 'wooman.png', 12, 12)
 ];
 
 
