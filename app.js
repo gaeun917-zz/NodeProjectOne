@@ -18,13 +18,13 @@ function Product(name, image, price, count) {
 
 // 3. variable : call constructor and put Product object inside products array
 var products = [
-                new Product('JavaScript', 'chrome.png', 28000, 30),
-                new Product('jQuery', 'chrome.png', 28000, 30),
-                new Product('Node.js', 'chrome.png', 32000, 30),
-                new Product('Socket.io', 'chrome.png', 17000, 30),
-                new Product('Connect', 'chrome.png', 18000, 30),
-                new Product('Express', 'chrome.png', 31000, 30),
-                new Product('EJS', 'chrome.png', 12000, 30)
+                new Product('JavaScript', 'clock.png', 28000, 30),
+                new Product('jQuery', 'diamond.png', 28000, 30),
+                new Product('Node.js', 'graph.png', 32000, 30),
+                new Product('Socket.io', 'joypad.png', 17000, 30),
+                new Product('Connect', 'man.png', 18000, 30),
+                new Product('Express', 'map.png', 31000, 30),
+                new Product('EJS', 'wooman.png', 12000, 30)
 ];
 
 

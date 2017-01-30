@@ -15,5 +15,19 @@
     "shopping"
   ],
   "author": "stella Ga-Eun Lee",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "fs": "0.0.1-security",
+    "socket.io": "^1.7.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaeun917/NodeProjectOne.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gaeun917/NodeProjectOne/issues"
+  },
+  "homepage": "https://github.com/gaeun917/NodeProjectOne#readme"
 }
